@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Test-NGSuite]">
+  <test parallel="none" name="TestNG(failed)">
+    <classes>
+      <class name="lookOverNasa.LookOverNasa">
+        <methods>
+          <include name="lookOverNasa"/>
+          <include name="afterClass"/>
+          <include name="beforeSuite"/>
+          <include name="afterTest"/>
+          <include name="afterSuite"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- lookOverNasa.LookOverNasa -->
+    </classes>
+  </test> <!-- TestNG(failed) -->
+</suite> <!-- Failed suite [Test-NGSuite] -->
