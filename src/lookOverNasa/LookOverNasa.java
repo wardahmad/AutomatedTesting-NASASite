@@ -1,49 +1,68 @@
 package lookOverNasa;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(ListenerTest.class)
 public class LookOverNasa extends BaseClass {
-	// public WebDriver driver;
 
 	@Test
 	public void lookOverNasa() throws InterruptedException {
-		// System.setProperty("webdriver.chrome.driver",
-		// "C:\\Users\\white\\Desktop\\QA\\Auto\\chromedriver14\\chromedriver.exe");
-		// driver = new ChromeDriver();
 
-		// Open URL
-		driver.navigate().to("https://www.nasa.gov/");
-		driver.manage().window().maximize();
+		Actions actions = new Actions(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(2000);
-//		// search------------------------------------------------------------------------------------------------------
-//		driver.findElement(By.xpath("//input[@aria-hidden='false']")).sendKeys("Stars");
-//		Thread.sleep(2000);
-//		driver.findElement(By.id("ember23")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//a[@href='https://www.nasa.gov/content/stars-and-galaxies/']")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//a[@href='/sun']")).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//div[@id='ember160']")).click();
 
-		// scroll down
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("scrollBy(759, 24)");
-//		driver.findElement(By.xpath("//*[@id='cookie_loc']/div/a[1]")).click();
-//		driver.findElement(
-//				By.xpath("//article[@class='article exploring-discovering']/div[4]//img[@class='play-button']"))
-//				.click();
-//		Thread.sleep(5000);
-//		///////////////////////////////////////////////////////////////////////////////
+		// ----search---- //
+		// Type "Stars" in the search bar
+		driver.findElement(By.xpath("//input[@aria-hidden='false']")).sendKeys("Stars");
+		Thread.sleep(2000);
 
-		// ------------------------------------E-books--------------------------------------------
+		// Click on the search button
+		driver.findElement(By.xpath("//input[@value='Search']")).click();
+		Thread.sleep(2000);
 
-		/// Mai ///
+		// Click on the "Stars" Anchor Tag
+		driver.findElement(By.xpath("//a[@href='https://www.nasa.gov/content/stars-and-galaxies/']")).click();
+		Thread.sleep(2000);
+
+		// Click on "The Sun" Anchor Tag
+		driver.findElement(By.xpath("//a[@href='/sun']")).click();
+		Thread.sleep(2000);
+
+		// Declare WebElement - sun IMG
+		WebElement divEle = driver.findElement(By.xpath("//div[@id='ember164']"));
+
+		// Scroll Element into View
+		actions.moveToElement(divEle).perform();
+		Thread.sleep(2000);
+
+		// New Window
+		js.executeScript("window.open()");
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		Thread.sleep(5000);
+
+		// Switch to a new tab
+		driver.switchTo().window(tabs.get(1));
+		String urlEle = "https://www.esa.int/Science_Exploration/Space_Science/Solar_Orbiter/The_Sun_as_you_ve_never_seen_it_before";
+		driver.get(urlEle);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id='cookie_loc']/div/a[1]")).click();
+		Thread.sleep(2000);
+		driver.close();
+
+		// switch back control to old tab
+		driver.switchTo().window(tabs.get(0));
+		Thread.sleep(5000);
+
+		// ----E-books---- //
 		// Downloads
 		driver.findElement(By.xpath("//span[contains(.,'Downloads')]")).click();
 		Thread.sleep(2000);
@@ -53,19 +72,17 @@ public class LookOverNasa extends BaseClass {
 		Thread.sleep(2000);
 
 		// scroll down
-		JavascriptExecutor jm = (JavascriptExecutor) driver;
-		jm.executeScript("scrollBy(0, 200)");
+		js.executeScript("scrollBy(0, 200)");
 
-		// book
+		// <div/> in the books Page
 		driver.findElement(By.xpath("(//div[@class='bg-card-canvas'])[4]")).click();
 		Thread.sleep(2000);
 
 		// Nasalogo
-		driver.findElement(By.xpath("//span[contains(.,'NASA Audiences')]")).click();
+		driver.findElement(By.xpath("//img[@src=\"/sites/all/themes/custom/nasatwo/images/nasa-logo.svg\"]")).click();
 		Thread.sleep(2000);
 
-		// ----------------------------------image------------------------------------------------
-
+		// ----image---- //
 		// Galleries
 		driver.findElement(By.xpath("//span[contains(.,'Galleries')]")).click();
 		Thread.sleep(2000);
@@ -75,18 +92,17 @@ public class LookOverNasa extends BaseClass {
 		Thread.sleep(2000);
 
 		// scroll down
-		JavascriptExecutor jM = (JavascriptExecutor) driver;
-		jM.executeScript("scrollBy(0,5000)");
+		js.executeScript("scrollBy(0,5000)");
 
 		// More image
 		driver.findElement(By.xpath("//div[contains(@id,'trending')]")).click();
 		Thread.sleep(2000);
 
 		// Nasalogo
-		driver.findElement(By.xpath("//span[contains(.,'NASA Audiences')]")).click();
+		driver.findElement(By.xpath("//img[@src=\"/sites/all/themes/custom/nasatwo/images/nasa-logo.svg\"]")).click();
 		Thread.sleep(2000);
 
-		// -------------------------------------------sound-------------------------------------------
+		// ----sound---- //
 		// Downloads
 		driver.findElement(By.xpath("//span[contains(.,'Downloads')]")).click();
 		Thread.sleep(2000);
@@ -96,17 +112,50 @@ public class LookOverNasa extends BaseClass {
 		Thread.sleep(2000);
 
 		// scroll down
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("scrollBy(0, 3550)");
 
 		// sound
-		driver.findElement(By.xpath("//a[@href='http://www.nasa.gov/mp3/581097main_STS-1_Dust-it-Off.mp3']")).click();
+		WebElement sound = driver
+				.findElement(By.xpath("//a[@href='http://www.nasa.gov/mp3/581097main_STS-1_Dust-it-Off.mp3']"));
+		String soundURL = sound.getAttribute("href");
+		Thread.sleep(2000);
+
+		// New Window
+		js.executeScript("window.open()");
+		ArrayList<String> tabOne = new ArrayList<String>(driver.getWindowHandles());
+		Thread.sleep(5000);
+
+		// Switch to a new tab
+		driver.switchTo().window(tabOne.get(1));
+		driver.get(soundURL);
+		Thread.sleep(10000);
+		driver.close();
+
+		// switch back control to old tab
+		driver.switchTo().window(tabOne.get(0));
 		Thread.sleep(2000);
 
 		// Nasalogo
-		// Here there is failures
-		// driver.findElement(By.xpath("//span[contains(.,'NASA Audiences')]")).click();
-		Thread.sleep(8000);
+		driver.findElement(By.xpath("//img[@src='/sites/all/themes/custom/nasatwo/images/nasa-logo.svg']")).click();
+		Thread.sleep(2000);
 
+		// ----Audiences---- //
+		// NASA Audiences
+		driver.findElement(By.xpath("//span[contains(.,'NASA Audiences')]")).click();
+		Thread.sleep(2000);
+
+		// For Media
+		driver.findElement(By.xpath("//a[@href='/news/media/info/index.html']")).click();
+		Thread.sleep(2000);
+
+		// NASA Live
+		WebElement nasaLive = driver.findElement(By.xpath("(//a[contains(.,'NASA Live')])[2]"));
+		actions.moveToElement(nasaLive).perform();
+		nasaLive.click();
+		Thread.sleep(2000);
+
+		WebElement video = driver.findElement(By.xpath("(//a[contains(.,'NASA Live')])[2]"));
+		js.executeScript("arguments[0].scrollIntoView();", video);
+		Thread.sleep(3000);
 	}
 }
