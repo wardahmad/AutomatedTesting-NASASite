@@ -9,4 +9,4 @@
 * The `testng.xml` file: a configuration file to help in organizing our Test Cases.
 
 ### <a href='https://youtu.be/ML28B38MRsc'>Recorded video, while Automated testing running</a>
-### <a href='AutomatedTesting-NASASite/src/lookOverNasa/'>Source code</a>
+### <a href='src/lookOverNasa/'>Source code</a>
