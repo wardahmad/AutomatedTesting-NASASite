@@ -13,9 +13,9 @@
 
 ### project files
 * Test Documents, for the Testing Procedure.
-    * <a href="https://docs.google.com/document/d/1NBQsFalrNiCoIwep6ZyGMYG7ioshMAd3/edit">Test Plan.</a>
-    * <a href="https://docs.google.com/spreadsheets/d/1Ws7x9Vo8BKUdJh7vOqPoKeRdB8z59cx5/edit#gid=1300471945">Test Case.</a>
-    * <a href="https://docs.google.com/document/d/1Zsew_zJoeMWhTIScAuDaVyobE7phhtEh/edit">Test Result Report.</a>
+    * <a href="https://docs.google.com/document/d/1NBQsFalrNiCoIwep6ZyGMYG7ioshMAd3/edit?usp=sharing&ouid=113234837739401438291&rtpof=true&sd=true">Test Plan.</a>
+    * <a href="https://docs.google.com/spreadsheets/d/1Ws7x9Vo8BKUdJh7vOqPoKeRdB8z59cx5/edit?usp=sharing&ouid=113234837739401438291&rtpof=true&sd=true">Test Case.</a>
+    * <a href="https://docs.google.com/document/d/1Zsew_zJoeMWhTIScAuDaVyobE7phhtEh/edit?usp=sharing&ouid=113234837739401438291&rtpof=true&sd=true">Test Result Report.</a>
 * <a href="https://youtu.be/D-3gLGrk3Sg">Recorded video, while Automated testing running</a>
 * <a href="src/lookOverNasa/">Source code.</a>
 
