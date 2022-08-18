@@ -24,3 +24,18 @@
 * The `LookOverNasa.Java` file: The class contains One Test case/ One Method, contains the `@Test` Annotation,  and Extends BaseClass.
 * The `ListenerTest.Java` file: Implementing Listeners Interface, the calss has the following methods: `OnStart`, `onTestSuccess`, `onTestFailure`, `onTestSkipped`, `onTestFailedButWithinSuccessPercentage`, `onFinish`.
 * The `testng.xml` file: a configuration file to help in organizing our Test Cases.
+
+### 
+- Type "Stars" in the search bar.
+- Click on the search logo.
+- Click on the "Stars" word.
+- Click on "The Sun"
+- Scroll into the image.
+- Switch to a new tab.
+- Switching back to the old tab.
+- Navigation Bar: 
+    - "Downloads" > click on "E-book"
+    - "Galleries" > click on "image of the day"
+    - "Downloads" > click on "AudioandRingtones" > scroll down and open the sound in a new tab. 
+    - Switching back to the old tab.
+    - "Audiences" > click on "For Media" > click on "NASA Live"
