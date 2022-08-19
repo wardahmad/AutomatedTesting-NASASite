@@ -25,7 +25,7 @@
 * The `ListenerTest.Java` file: Implementing Listeners Interface, the calss has the following methods: `OnStart`, `onTestSuccess`, `onTestFailure`, `onTestSkipped`, `onTestFailedButWithinSuccessPercentage`, `onFinish`.
 * The `testng.xml` file: a configuration file to help in organizing our Test Cases.
 
-### Automated Testing Workflow:
+### Test Case Steps:
 - Type "Stars" in the search bar.
 - Click on the search logo.
 - Click on the "Stars" word.
